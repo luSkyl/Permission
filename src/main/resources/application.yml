@@ -1,0 +1,54 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/permission?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    jackson:
+      default-property-inclusion: non_null
+  freemarker:
+    check-template-location: true
+    template-loader-path: /templates
+    cache: false
+    charset: utf-8
+    content-type: text/html
+    expose-request-attributes: false
+    expose-spring-macro-helpers: false
+    expose-session-attributes: false
+    request-context-attribute: requestContextAttribute
+    suffix: .ftl
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  redis:
+    port: 3679
+    host: 127.0.0.1
+    database: 0
+    timeout: 3000
+    password:
+    jedis:
+      pool:
+        max-idle: 8 # 最大空闲连接数（默认为8，负数表示无限）
+        max-active: 8 # 最大可用连接数（默认为8，负数表示无限）
+        min-idle: 0 # 最小空闲连接数（默认为0，该值只有为正数才有用）
+
+
+
+#  thymeleaf:
+#    cache: false
+#    check-template-location: true
+#    prefix: classpath:/templates/
+#    suffix: .ftl
+#    servlet:
+#      content-type: text/html
+#  mvc:
+#    static-path-pattern: /static/**
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  #  log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
